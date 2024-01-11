@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { getFCP } from "web-vitals";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { CurrencyConverter } from "./components/CurrencyConverter";
 
 function App() {
+  const cash = useSelector((state) => state.cash);
+  const dispatch = useDispatch();
+
+  const addCash = () => {
+    dispatch({type:"ADD_CASH",payload:Number(prompt("How much?"))})
+  }
+
+  const takeCash = () => {
+    dispatch({type:"TAKE_CASH",payload:Number(prompt("How much?"))})
+  }
+
+
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>shaxzod's balance: {cash}</h1>
+      <div>
+        <button onClick={()=>addCash()}>plus</button>
+        <button onClick={()=>takeCash()}>minus</button>
+      </div>
+      <CurrencyConverter /> 
     </div>
   );
 }

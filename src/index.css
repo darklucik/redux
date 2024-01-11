@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 10px 25px;
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 15px;
+  transition: 0.1s;
+}
+
+button:active {
+  background-color: white;
+  color: blue;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
